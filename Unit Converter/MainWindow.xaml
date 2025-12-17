@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Unit_Converter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="400" Width="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Конвентер длины и температуры" Margin="0,0,0,20" FontSize="26" FontWeight="ExtraLight" HorizontalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,20">
+            <TextBlock Text="Категория: " VerticalAlignment="Center" Margin="0,0,10,0" FontSize="16"/>
+            <RadioButton x:Name="rbLength" GroupName="Category" IsChecked="True" Margin="0,0,10,0" Checked="RButton1_Selected">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/ruler.png" Width="30" Height="30" Margin="0,0,5,0"/>
+                    <TextBlock Text="Длина" VerticalAlignment="Center"/>
+                </StackPanel>
+            </RadioButton>
+            <RadioButton x:Name="RButton2" Checked="RButton2_Selected" Margin="10,0,5,0">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/images/tempa.png" Width="30" Height="30" Margin="0,0,5,0"/>
+                    <TextBlock Text="Температура" VerticalAlignment="Center"/>
+                </StackPanel>
+            </RadioButton>
+        </StackPanel>
+
     </Grid>
 </Window>

@@ -24,5 +24,14 @@ namespace Unit_Converter
         {
             InitializeComponent();
         }
+
+        private void RButton1_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void RButton2_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
