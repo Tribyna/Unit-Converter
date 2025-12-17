@@ -33,5 +33,9 @@ namespace Unit_Converter
         {
 
         }
+        private void Value_TextChenged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
