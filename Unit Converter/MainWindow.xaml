@@ -15,6 +15,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="Конвентер длины и температуры" Margin="0,0,0,20" FontSize="26" FontWeight="ExtraLight" HorizontalAlignment="Center"/>
@@ -37,7 +38,7 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,20">
             <TextBlock Text="Число: " VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox x:Name="Value" Width="400" HorizontalAlignment="Left" TextChanged="Value_TextChenged"/>
+            <TextBox x:Name="Value" Width="190" HorizontalAlignment="Left" TextChanged="Value_TextChenged"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,20">
@@ -50,6 +51,10 @@
             <ComboBox x:Name="To" Width="200" HorizontalAlignment="Left" SelectionChanged="To_Selected"/>
         </StackPanel>
 
-        <TextBlock Grid.Row="5" x:Name="Result" FontSize="18" FontWeight="ExtraBold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        <Button Grid.Row="5" x:Name="Start" Content="Конвертировать" Width="150" Height="30" HorizontalAlignment="Center" Margin="0,0,0,20" Click="Start_Click"/>
+
+        <TextBlock Grid.Row="6" x:Name="Result" FontSize="18" FontWeight="ExtraBold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        
+        
     </Grid>
 </Window>

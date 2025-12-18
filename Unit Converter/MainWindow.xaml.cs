@@ -20,11 +20,30 @@ namespace Unit_Converter
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private bool isInitializing = true;
+
+        private Dictionary<string, double> Metri = new Dictionary<string, double>
+        {
+            { "Метр", 1.0 },
+            { "Километр", 1000.0 },
+            { "Сантиметр", 0.01 },
+            { "Миллиметр", 0.001 },
+            { "Дюйм", 0.0254 },
+            { "Фут", 0.3048 }
+        };
+
+        private Dictionary<string, string> Tempa = new Dictionary<string, string>
+        {
+            { "Цельсий", "C" },
+            { "Фаренгейт", "F" },
+            { "Кельвин", "K" }
+        };
+
         public MainWindow()
         {
             InitializeComponent();
         }
-
         private void RButton1_Selected(object sender, RoutedEventArgs e)
         {
 
