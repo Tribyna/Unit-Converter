@@ -49,5 +49,7 @@
             <TextBlock Text="В: " VerticalAlignment="Center" Width="40"/>
             <ComboBox x:Name="To" Width="200" HorizontalAlignment="Left" SelectionChanged="To_Selected"/>
         </StackPanel>
+
+        <TextBlock Grid.Row="5" x:Name="Result" FontSize="18" FontWeight="ExtraBold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
     </Grid>
 </Window>
