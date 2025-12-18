@@ -43,46 +43,6 @@ namespace Unit_Converter
         public MainWindow()
         {
             InitializeComponent();
-
-            LoadTempa();
-        }
-
-        private void LoadMetri()
-        {
-            foreach (var unit in Metri.Keys)
-            {
-                From.Items.Add(unit);
-                To.Items.Add(unit);
-            }
-
-            if (From.Items.Count > 0)
-            {
-                From.SelectedIndex = 0;
-            }
-
-            if (To.Items.Count > 1)
-            {
-                To.SelectedIndex = 1;
-            }
-        }
-
-        private void LoadTempa()
-        {
-            foreach (var unit in Tempa.Keys)
-            {
-                From.Items.Add(unit);
-                To.Items.Add(unit);
-            }
-
-            if (From.Items.Count > 0)
-            {
-                From.SelectedIndex = 0;
-            }
-
-            if (To.Items.Count > 1)
-            {
-                To.SelectedIndex = 1;
-            }
         }
         private void RButton1_Selected(object sender, RoutedEventArgs e)
         {
@@ -103,11 +63,6 @@ namespace Unit_Converter
         }
 
         private void To_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Start_Click(object sender, RoutedEventArgs e)
         {
 
         }
