@@ -35,10 +35,19 @@
             </RadioButton>
         </StackPanel>
 
-
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,20">
             <TextBlock Text="Число: " VerticalAlignment="Center" Margin="0,0,10,0"/>
             <TextBox x:Name="Value" Width="400" HorizontalAlignment="Left" TextChanged="Value_TextChenged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,20">
+            <TextBlock Text="Из: " VerticalAlignment="Center" Width="40"/>
+            <ComboBox x:Name= "From" Width="200" HorizontalAlignment="Left" SelectionChanged="From_Selected"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,20">
+            <TextBlock Text="В: " VerticalAlignment="Center" Width="40"/>
+            <ComboBox x:Name="To" Width="200" HorizontalAlignment="Left" SelectionChanged="To_Selected"/>
         </StackPanel>
     </Grid>
 </Window>

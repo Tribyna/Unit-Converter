@@ -37,5 +37,15 @@ namespace Unit_Converter
         {
 
         }
+
+        private void From_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void To_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
