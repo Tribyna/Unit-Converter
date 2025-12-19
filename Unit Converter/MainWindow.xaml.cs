@@ -44,7 +44,10 @@ namespace Unit_Converter
         {
             InitializeComponent();
 
-            LoadTempa();
+            LoadMetri();
+
+            RButton1.Checked += Category;
+            RButton2.Checked += Category;
         }
 
         private void LoadMetri()
@@ -84,6 +87,19 @@ namespace Unit_Converter
                 To.SelectedIndex = 1;
             }
         }
+
+        private void Category(object sender, RoutedEventArgs e)
+        {
+            if(RButton1.IsChecked == true)
+            {
+                LoadMetri();
+            }
+            else if (RButton2.IsChecked == true)
+            {
+                LoadTempa();
+            }
+        }
+
         private void RButton1_Selected(object sender, RoutedEventArgs e)
         {
 
