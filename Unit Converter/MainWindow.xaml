@@ -54,7 +54,7 @@
         <Button Grid.Row="5" x:Name="Start" Content="Конвертировать" Width="150" Height="30" HorizontalAlignment="Center" Margin="0,0,0,20" Click="Start_Click"/>
 
         <TextBlock Grid.Row="6" x:Name="Result" FontSize="18" FontWeight="ExtraBold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-        
-         
+
+        <TextBlock Grid.Row="7" x:Name="Message" Foreground="Red" HorizontalAlignment="Center"/>
     </Grid>
 </Window>

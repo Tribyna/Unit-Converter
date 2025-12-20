@@ -100,6 +100,108 @@ namespace Unit_Converter
             }
         }
 
+        private void convert()
+        {
+
+            Message.Text = " ";
+            if(From.SelectedItem != null || To.SelectedItem != null)
+            {
+                Result.Text = " ";
+                Message.Text = "Выбирете единицу измерения!";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(Value.Text))
+            {
+                Result.Text = "";
+                Message.Text = "Введите значение!";
+                return;
+            }
+
+            try
+            {
+                string inputText = Value.Text.Replace('.', ',');
+                if (!double.TryParse(inputText, out double inputValue))
+                {
+                    inputText = Value.Text.Replace('.', ',');
+                    if (!double.TryParse(inputText, out inputValue))
+                    {
+                        Result.Text = "";
+                        Message.Text = "Введите корректное число!";
+                        return;
+                    }
+                }
+                string fromUnit = From.SelectedItem.ToString();
+                string toUnit = From.SelectedItem.ToString();
+
+                double result;
+
+                if (RButton1.IsChecked == true)
+                {
+                    result = ConMetri(inputValue, fromUnit, toUnit);
+                }
+                else
+                {
+                    result = ConTempa(inputValue, fromUnit, toUnit);
+                }
+
+                Result.Text = $"{inputValue} {fromUnit} = {result:F4} {toUnit}";
+                }
+            catch(Exception ex)
+            {
+                Result.Text = "";
+                Message.Text = $"Ошибка: {ex.Message}";
+            }
+        }
+        
+
+        private double ConMetri(double value, string fromUnit, string toUnit)
+        {
+            if (!Metri.ContainsKey(fromUnit) || !Metri.ContainsKey(toUnit))
+                throw new ArgumentException("Неизвестная единица измерения");
+
+            double valueInMeters = value * Metri[fromUnit];
+
+            double result = valueInMeters / Metri[toUnit];
+            return result;
+        }
+        private double ConTempa(double value, string fromUnit, string toUnit)
+        {
+            string fromSymbol = Tempa[fromUnit];
+            string toSymbol = Tempa[toUnit];
+
+            double valueInCelsius;
+
+            switch (fromSymbol)
+            {
+                case "C":
+                    valueInCelsius = value;
+                    break;
+                case "F":
+                    valueInCelsius = (value - 32) * 5 / 9;
+                    break;
+                case "K":
+                    valueInCelsius = value - 273.15;
+                    break;
+                default:
+                    throw new ArgumentException("Неизвестная единица измерения");
+            }
+
+            switch (toSymbol)
+            {
+                case "C":
+                    return valueInCelsius;
+                case "F":
+                    return valueInCelsius * 9 / 5 + 32;
+                case "K":
+                    return valueInCelsius + 273.15;
+                default:
+                    throw new ArgumentException("Неизвестная единица измерения");
+
+            
+            }
+        }
+
         private void RButton1_Selected(object sender, RoutedEventArgs e)
         {
 
