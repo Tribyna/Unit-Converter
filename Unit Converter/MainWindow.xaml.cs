@@ -20,8 +20,11 @@ namespace Unit_Converter
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool Auto = false;
 
         private bool isInitializing = true;
+
+
 
         private Dictionary<string, double> Metri = new Dictionary<string, double>
         {
@@ -46,12 +49,17 @@ namespace Unit_Converter
 
             LoadMetri();
 
+            isInitializing = false;
+
             RButton1.Checked += Category;
             RButton2.Checked += Category;
         }
 
         private void LoadMetri()
         {
+            To.Items.Clear();
+            From.Items.Clear();
+
             foreach (var unit in Metri.Keys)
             {
                 From.Items.Add(unit);
@@ -71,6 +79,9 @@ namespace Unit_Converter
 
         private void LoadTempa()
         {
+            To.Items.Clear();
+            From.Items.Clear();
+
             foreach (var unit in Tempa.Keys)
             {
                 From.Items.Add(unit);
@@ -90,6 +101,8 @@ namespace Unit_Converter
 
         private void Category(object sender, RoutedEventArgs e)
         {
+            if (isInitializing) return;
+
             if(RButton1.IsChecked == true)
             {
                 LoadMetri();
@@ -97,6 +110,11 @@ namespace Unit_Converter
             else if (RButton2.IsChecked == true)
             {
                 LoadTempa();
+            }
+
+            if (Auto)
+            {
+                convert();
             }
         }
 
@@ -202,17 +220,28 @@ namespace Unit_Converter
             }
         }
 
-        private void RButton1_Selected(object sender, RoutedEventArgs e)
+        private void AutoMode()
         {
+            if (!Auto)
+            {
+                Auto = true;
 
-        }
-        private void RButton2_Selected(object sender, RoutedEventArgs e)
-        {
+                Value.TextChanged += Value_TextChenged;
+                From.SelectionChanged += ComboBox_Changed;
+                To.SelectionChanged += ComboBox_Changed;
 
+                convert();
+            }
         }
         private void Value_TextChenged(object sender, RoutedEventArgs e)
         {
+            if (!Auto || isInitializing) return;
+        }
 
+        private void ComboBox_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            if (!Auto || isInitializing) return;
+            convert();
         }
 
         private void From_Selected(object sender, RoutedEventArgs e)
@@ -227,7 +256,12 @@ namespace Unit_Converter
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
+            if (!Auto)
+            {
+                AutoMode();
+            }
 
+            convert();
         }
     }
 }
