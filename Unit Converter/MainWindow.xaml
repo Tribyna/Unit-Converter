@@ -43,17 +43,17 @@
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,20">
             <TextBlock Text="Из: " VerticalAlignment="Center" Width="40"/>
-            <ComboBox x:Name= "From" Width="200" HorizontalAlignment="Left" SelectionChanged="From_Selected"/>
+            <ComboBox x:Name= "From" Width="200" HorizontalAlignment="Left"/>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,20">
             <TextBlock Text="В: " VerticalAlignment="Center" Width="40"/>
-            <ComboBox x:Name="To" Width="200" HorizontalAlignment="Left" SelectionChanged="To_Selected"/>
+            <ComboBox x:Name="To" Width="200" HorizontalAlignment="Left"/>
         </StackPanel>
 
         <Button Grid.Row="5" x:Name="Start" Content="Конвертировать" Width="150" Height="30" HorizontalAlignment="Center" Margin="0,0,0,20" Click="Start_Click"/>
 
-        <TextBlock Grid.Row="6" x:Name="Result" FontSize="18" FontWeight="ExtraBold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        <TextBlock Grid.Row="6" x:Name="Result" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
         <TextBlock Grid.Row="7" x:Name="Message" Foreground="Red" HorizontalAlignment="Center"/>
     </Grid>

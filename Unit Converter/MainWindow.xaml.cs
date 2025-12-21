@@ -49,10 +49,15 @@ namespace Unit_Converter
 
             LoadMetri();
 
-            isInitializing = false;
 
             RButton1.Checked += Category;
             RButton2.Checked += Category;
+
+            Auto = false;
+
+            isInitializing = false;
+
+
         }
 
         private void LoadMetri()
@@ -120,9 +125,11 @@ namespace Unit_Converter
 
         private void convert()
         {
+            if (isInitializing) return;
 
             Message.Text = " ";
-            if(From.SelectedItem != null || To.SelectedItem != null)
+
+            if (From.SelectedItem == null || To.SelectedItem == null)
             {
                 Result.Text = " ";
                 Message.Text = "Выбирете единицу измерения!";
@@ -141,7 +148,7 @@ namespace Unit_Converter
                 string inputText = Value.Text.Replace('.', ',');
                 if (!double.TryParse(inputText, out double inputValue))
                 {
-                    inputText = Value.Text.Replace('.', ',');
+                    inputText = Value.Text.Replace(',', '.');
                     if (!double.TryParse(inputText, out inputValue))
                     {
                         Result.Text = "";
@@ -150,7 +157,7 @@ namespace Unit_Converter
                     }
                 }
                 string fromUnit = From.SelectedItem.ToString();
-                string toUnit = From.SelectedItem.ToString();
+                string toUnit = To.SelectedItem.ToString();
 
                 double result;
 
@@ -233,7 +240,7 @@ namespace Unit_Converter
                 convert();
             }
         }
-        private void Value_TextChenged(object sender, RoutedEventArgs e)
+        private void Value_TextChenged(object sender, TextChangedEventArgs e)
         {
             if (!Auto || isInitializing) return;
         }
@@ -242,16 +249,6 @@ namespace Unit_Converter
         {
             if (!Auto || isInitializing) return;
             convert();
-        }
-
-        private void From_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void To_Selected(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
